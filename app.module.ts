@@ -116,14 +116,14 @@ import { WordModule } from './core/word/word.module';
           // useUTC: true,
           // logging: false,
           // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
-          host: configService.get('DATABASE_URL', '203.159.93.121'),
+          host: configService.get('DATABASE_URL', '141.98.19.5'),
           port: Number(configService.get<number>('DATABASE_PORT', 5432)),
           username: configService.get('DATABASE_USERNAME', 'postgres'),
           password: configService.get('DATABASE_PASSWORD', 'password'),
           database: configService.get<string>('DATABASE_SCHEMA', 'postgres'),
           useUTC: true,
           logging: true,
-          synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
+          synchronize: true,
 
           entities: ["dist/**/**/*.entity{.ts,.js}"],
 
