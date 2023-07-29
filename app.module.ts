@@ -99,7 +99,7 @@ import { WordModule } from './core/word/word.module';
     //   entities: ["dist/**/*.entity{.ts,.js}"]
     // }),
     ConfigModule.forRoot({
-      isGlobal: true,
+      isGlobal: false,
       envFilePath:['.env']
     }),
 
@@ -125,7 +125,6 @@ import { WordModule } from './core/word/word.module';
           useUTC: true,
           logging: false,
           synchronize: false,
-
           entities: ["dist/**/**/*.entity{.ts,.js}"],
 
         };
