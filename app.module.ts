@@ -100,6 +100,7 @@ import { WordModule } from './core/word/word.module';
     // }),
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath:['.env']
     }),
 
     TypeOrmModule.forRootAsync({
