@@ -117,7 +117,7 @@ import { WordModule } from './core/word/word.module';
           // useUTC: true,
           // logging: false,
           // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
-          host: configService.get('DATABASE_URL', 'localhost'),
+          host: configService.get('DB_HOST', 'localhost'),
           port: Number(configService.get<number>('DATABASE_PORT', 5432)),
           username: configService.get('POSTGRES_USER', 'postgres'),
           password: configService.get('POSTGRES_PASSWORD', 'password'),
