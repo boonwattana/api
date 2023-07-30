@@ -120,7 +120,7 @@ import { WordModule } from './core/word/word.module';
           host: configService.get('POSTGRES_HOST', 'localhost'),
           port: Number(configService.get<number>('POSTGRES_PORT', 5432)),
           username: configService.get('POSTGRES_USER', 'postgres'),
-          password: configService.get('POSTGRES_PASSWORD', 'password'),
+          password: configService.get('POSTGRES_PASSWORD', 'pEM8F^hZBHuMfJYK'),
           database: configService.get<string>('POSTGRES_DATABASE', 'bwn_db'),
           useUTC: true,
           logging: false,
