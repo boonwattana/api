@@ -118,7 +118,7 @@ import { WordModule } from './core/word/word.module';
             // useUTC: true,
             // logging: false,
             // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
-            host: configService.get('POSTGRES_HOST', 'localhost'),
+            url: configService.get('DATABASE_URL', 'localhost'),
             port: Number(configService.get<number>('POSTGRES_PORT', 5432)),
             username: configService.get('POSTGRES_USER', 'dbuser'),
             password: configService.get('POSTGRES_PASSWORD', 'pEM8F^hZBHuMfJYK'),
