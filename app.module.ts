@@ -120,7 +120,7 @@ import { WordModule } from './core/word/word.module';
             // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
             url: configService.get('DATABASE_URL', 'localhost'),
             port: Number(configService.get<number>('POSTGRES_PORT', 5432)),
-            username: configService.get('POSTGRES_USER', 'dbuser'),
+            user: configService.get('POSTGRES_USER', 'dbuser'),
             password: configService.get('POSTGRES_PASSWORD', 'pEM8F^hZBHuMfJYK'),
             database: configService.get<string>('POSTGRES_DATABASE', 'bwn_db'),
             useUTC: true,
