@@ -125,11 +125,11 @@ th{
     font-weight: 700;
 }
 td{
-    padding-bottom: 2px;
-    padding-top: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
     padding-left: 5px;
     text-align: left;
-    font-size: 14px;
+    font-size: 13px;
     border-left: 0.5px;
     border-right: 0.5px;
     border-bottom: 0.5px;
