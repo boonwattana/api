@@ -84,9 +84,9 @@ import { SarOrderedPositionModule  } from './api/sar-ordered-position/sar-ordere
 import { WordModule } from './core/word/word.module';
 @Module({
   imports: [
-    ConfigModule.forRoot(
-      {isGlobal:true}
-    ),
+    // ConfigModule.forRoot(
+    //   {isGlobal:true}
+    // ),
     TypeOrmModule.forRoot({
       type:'postgres',
       url:'localhost',
