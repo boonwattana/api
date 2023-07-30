@@ -89,12 +89,12 @@ import { WordModule } from './core/word/word.module';
     ),
     TypeOrmModule.forRoot({
       type:'postgres',
-      url:'localhost',
+      host:'localhost',
       port:5432,
       username:'dbuser',
       password:"pEM8F^hZBHuMfJYK",
       // autoLoadEntities:true,
-      schema:'bwn_db',
+      database:'bwn_db',
       // synchronize:true,
       entities: ["dist/**/*.entity{.ts,.js}"]
     }),
