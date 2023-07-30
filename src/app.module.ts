@@ -82,21 +82,30 @@ import { SarAdviseClassModule  } from './api/sar-advise-class/sar-advise-class.m
 import { SarUploadImgModule  } from './api/sar-upload-img/sar-upload-img.module';
 import { SarOrderedPositionModule  } from './api/sar-ordered-position/sar-ordered-position.module';
 import { WordModule } from './core/word/word.module';
-import 'dotenv/config'
-import * as path from 'path';
-
 @Module({
   imports: [
+    // ConfigModule.forRoot(
+    //   {isGlobal:true}
+    // ),
+    // TypeOrmModule.forRoot({
+    //   type:'postgres',
+    //   url:'http://43.228.85.126',
+    //   port:5432,
+    //   username:'postgres',
+    //   password:"password",
+    //   autoLoadEntities:true,
+    //   schema:'postgres',
+    //   synchronize:true,
+    //   entities: ["dist/**/*.entity{.ts,.js}"]
+    // }),
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        const baseDir = __dirname;
-        const entitiesPath = path.join(baseDir, '**/**.entity{.ts,.js}');
-        const migrationPath = path.join(baseDir, '/../db/seed/*.{.ts,.js}');
         return {
           type: "postgres",
           // host: configService.get('DATABASE_URL', 'localhost'),
@@ -154,6 +163,7 @@ import * as path from 'path';
     SdqTableModule,
     SdqTeacherModule,
     SdqParentModule,
+
     YearTermModule,
     CheckStudentModule,
     StressModule,
