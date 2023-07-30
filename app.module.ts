@@ -100,13 +100,15 @@ import { WordModule } from './core/word/word.module';
     // }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath:['.nest.env']
+      envFilePath:['.env']
     }),
 
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
+        console.log('thisHst',configService.get('POSTGRES_HOST'));
+        
         return {
           type: "postgres",
           // host: configService.get('DATABASE_URL', 'localhost'),
