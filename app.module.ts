@@ -114,7 +114,7 @@ import * as path from 'path';
           database: configService.get<string>('DATABASE_SCHEMA', 'postgres'),
           useUTC: true,
           logging: true,
-          synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
+          synchronize:false,
 
           entities: ["dist/**/**/*.entity{.ts,.js}"],
 
