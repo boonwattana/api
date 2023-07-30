@@ -94,6 +94,7 @@ import { WordModule } from './core/word/word.module';
       username:'dbuser',
       password:"pEM8F^hZBHuMfJYK",
       schema:'bwn_db',
+      logging: ["query", "error"],
       synchronize:false,
       entities: ["dist/**/*.entity{.ts,.js}"]
     }),
