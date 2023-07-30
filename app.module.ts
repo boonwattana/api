@@ -82,6 +82,7 @@ import { SarAdviseClassModule  } from './api/sar-advise-class/sar-advise-class.m
 import { SarUploadImgModule  } from './api/sar-upload-img/sar-upload-img.module';
 import { SarOrderedPositionModule  } from './api/sar-ordered-position/sar-ordered-position.module';
 import { WordModule } from './core/word/word.module';
+
 @Module({
   imports: [
     // ConfigModule.forRoot(
@@ -100,16 +101,14 @@ import { WordModule } from './core/word/word.module';
     // }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath:['.env']
+      envFilePath:".env"
     }),
-
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
         try{
           return {
-            type: "postgres",
             // host: configService.get('DATABASE_URL', 'localhost'),
             // port: Number(configService.get<number>('DATABASE_PORT', 5432)),
             // username: configService.get('DATABASE_USERNAME', 'postgres'),
@@ -118,11 +117,12 @@ import { WordModule } from './core/word/word.module';
             // useUTC: true,
             // logging: false,
             // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
-            url: configService.get('DATABASE_URL', 'localhost'),
-            port: Number(configService.get<number>('POSTGRES_PORT', 5432)),
-            user: configService.get('POSTGRES_USER', 'dbuser'),
-            password: configService.get('POSTGRES_PASSWORD', 'pEM8F^hZBHuMfJYK'),
-            database: configService.get<string>('POSTGRES_DATABASE', 'bwn_db'),
+            type: 'postgres' as 'postgres',
+            host: configService.get<string>('DATABASE_HOST'),
+            port: parseInt(configService.get<string>('DATABASE_PORT')),
+            username: configService.get<string>('DATABASE_USER'),
+            password: configService.get<string>('DATABASE_PASS'),
+            database: configService.get<string>('DATABASE_NAME'),
             useUTC: true,
             logging: false,
             synchronize: false,
