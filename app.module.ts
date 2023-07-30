@@ -82,58 +82,33 @@ import { SarAdviseClassModule  } from './api/sar-advise-class/sar-advise-class.m
 import { SarUploadImgModule  } from './api/sar-upload-img/sar-upload-img.module';
 import { SarOrderedPositionModule  } from './api/sar-ordered-position/sar-ordered-position.module';
 import { WordModule } from './core/word/word.module';
+import 'dotenv/config'
+import * as path from 'path';
 
 @Module({
   imports: [
-    // ConfigModule.forRoot(
-    //   {isGlobal:true}
-    // ),
-    // TypeOrmModule.forRoot({
-    //   type:'postgres',
-    //   url:'127.0.0.1',
-    //   port:5432,
-    //   username:'dbuser',
-    //   password:"pEM8F^hZBHuMfJYK",
-    //   schema:'bwn_db',
-    //   logging: ["query", "error"],
-    //   synchronize:false,
-    //   entities: ["dist/**/*.entity{.ts,.js}"]
-    // }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath:".env"
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        try{
-          return {
-            // host: configService.get('DATABASE_URL', 'localhost'),
-            // port: Number(configService.get<number>('DATABASE_PORT', 5432)),
-            // username: configService.get('DATABASE_USERNAME', 'postgres'),
-            // password: configService.get('DATABASE_PASSWORD', 'postgres'),
-            // database: configService.get<string>('DATABASE_SCHEMA', 'bwn4'),
-            // useUTC: true,
-            // logging: false,
-            // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
-            type: 'postgres' as 'postgres',
-            host: configService.get<string>('DATABASE_HOST'),
-            port: parseInt(configService.get<string>('DATABASE_PORT')),
-            username: configService.get<string>('DATABASE_USER'),
-            password: configService.get<string>('DATABASE_PASS'),
-            database: configService.get<string>('DATABASE_NAME'),
-            useUTC: true,
-            logging: false,
-            synchronize: false,
-            entities: ["dist/**/**/*.entity{.ts,.js}"],
-  
-          };
-        } catch(e){
-          console.log(e);
-          
-        }     
-       
+        const baseDir = __dirname;
+        const entitiesPath = path.join(baseDir, '**/**.entity{.ts,.js}');
+        const migrationPath = path.join(baseDir, '/../db/seed/*.{.ts,.js}');
+        return {
+          type: 'postgres' as const,
+          host: process.env.DB_HOST,
+          port: +process.env.POSTGRES_PORT,
+          username: process.env.DB_USER,
+          password: process.env.DB_PASSWORD,
+          database: "postgres",
+          synchronize: false,
+          entities: [entitiesPath],
+          migrations: [migrationPath],
+          logging: true,
+        };
       },
     }),
     UsersModule,
@@ -169,7 +144,6 @@ import { WordModule } from './core/word/word.module';
     SdqTableModule,
     SdqTeacherModule,
     SdqParentModule,
-
     YearTermModule,
     CheckStudentModule,
     StressModule,
