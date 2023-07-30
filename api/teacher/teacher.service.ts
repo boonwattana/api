@@ -46,7 +46,7 @@ import { SearchActivityStudentDto } from '../activity-student/activity-student.d
 import { VwActivityStudentDropdown } from '../activity-student/activity-student.entity';
 import { getLabelEnum } from 'src/core/shared/functions';
 import { EDUCATION, PRACTITIONER_NO, TEACER_POSITION_NAME, TEACHER_STATUS, TITLE, TITLE_EN } from 'src/core/shared/constans/dropdown-constanst';
-import { Users } from 'src/core/users/users.entity';
+import { Users } from 'core/users/users.entity';
 
 @Injectable()
 export class TeacherService extends BaseService {

@@ -5,8 +5,8 @@ import { VwTeacherDropdown } from 'src/api/teacher/teacher.entity';
 import { SarPresonalDataController } from './sar-presonal-data.controller';
 import { SarPresonalData, VwSarPresonalDataDropdown, VwSarPresonalDataItem, VwSarPresonalDataList } from './sar-presonal-data.entity';
 import { SarPresonalDataService } from './sar-presonal-data.service';
-import { TeacherModule } from '../teacher/teacher.module';
-import { EducationBackgroundModule } from '../education-background/education-background.module';
+import { EducationBackgroundModule } from 'src/api/education-background/education-background.module';
+import { TeacherModule } from 'src/api/teacher/teacher.module';
 
 @Module({
   imports: [

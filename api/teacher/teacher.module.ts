@@ -20,7 +20,7 @@ import { AuthenticationsModule } from 'src/core/authentications/authentications.
 import { VwClassroomDropdown } from '../classroom/classroom.entity';
 import { VwClassroomTypeDropdown } from '../classroom-type/classroom-type.entity';
 import { VwActivityStudentDropdown } from '../activity-student/activity-student.entity';
-import { Users } from 'src/core/users/users.entity';
+import { Users } from 'core/users/users.entity';
 
 @Module({
   imports: [
@@ -47,6 +47,6 @@ import { Users } from 'src/core/users/users.entity';
   ],
   controllers: [TeacherController],
   providers: [TeacherService,DropdownService],
-  exports: [TeacherService,DropdownService]
+  exports: [DropdownService,TeacherService],
 })
 export class TeacherModule {}
