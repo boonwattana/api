@@ -125,8 +125,8 @@ th{
     font-weight: 700;
 }
 td{
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 2px;
+    padding-top: 2px;
     padding-left: 5px;
     text-align: left;
     font-size: 14px;

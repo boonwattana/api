@@ -180,7 +180,7 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
                        <div class="col2">
                            <img src="data:image/jpeg;base64,${el.imageProfile}" alt="">
                            <p class="center">รหัสประจำตัวนักเรียน</p>
-                           <p class="center">55010911155</p>
+                           <p class="center">${el.studentCode}</p>
                        </div>
            
                    </div>
@@ -247,10 +247,7 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
                        <img src="data:image/jpeg;base64,${el.img5}" alt="" class="img5">
                    </div>
                    <p class="left">
-                       บันทึกข้อมูลเมื่อ : <span> ${el.createAt} </span>
-                   </p>
-                   <p class="left">
-                       ภาคเรียนที่/ปีการศึกษา : <span> ${header.term}/${header.year} </span>
+                       บันทึกข้อมูลเมื่อ : <span> ${el.createAt} </span>   ภาคเรียนที่/ปีการศึกษา : <span> ${header.term}/${header.year} </span>
                    </p>
            </div>
            </div>`

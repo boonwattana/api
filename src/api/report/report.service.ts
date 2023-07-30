@@ -80,7 +80,7 @@ export class ReportService extends BaseService {
 
     async getReportHomeVisitReportByRoom(dto: ExportPdfDto) {
         
-         const reportName = 'รายงานข้อมูลการเยี่ยมบ้าน ||'
+         const reportName = 'รายงานข้อมูลการเยี่ยมบ้าน'
         const header = await this.getHeaderReport(reportName,dto.yearTermId,dto.classId,dto.roomId)
         const countStudent = await this.studentService.countByClassRoom(dto.classId,dto.roomId)
         const result = await this.reportHomeVisitPersonal.find({where:{yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
