@@ -100,36 +100,39 @@ import { WordModule } from './core/word/word.module';
     // }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath:['.env']
     }),
 
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        console.log('thisHst',configService.get('POSTGRES_HOST'));
-        
-        return {
-          type: "postgres",
-          // host: configService.get('DATABASE_URL', 'localhost'),
-          // port: Number(configService.get<number>('DATABASE_PORT', 5432)),
-          // username: configService.get('DATABASE_USERNAME', 'postgres'),
-          // password: configService.get('DATABASE_PASSWORD', 'postgres'),
-          // database: configService.get<string>('DATABASE_SCHEMA', 'bwn4'),
-          // useUTC: true,
-          // logging: false,
-          // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
-          host: configService.get('POSTGRES_HOST', 'localhost'),
-          port: Number(configService.get<number>('POSTGRES_PORT', 5432)),
-          username: configService.get('POSTGRES_USER', 'postgres'),
-          password: configService.get('POSTGRES_PASSWORD', 'pEM8F^hZBHuMfJYK'),
-          database: configService.get<string>('POSTGRES_DATABASE', 'bwn_db'),
-          useUTC: true,
-          logging: false,
-          synchronize: false,
-          entities: ["dist/**/**/*.entity{.ts,.js}"],
-
-        };
+        try{
+          return {
+            type: "postgres",
+            // host: configService.get('DATABASE_URL', 'localhost'),
+            // port: Number(configService.get<number>('DATABASE_PORT', 5432)),
+            // username: configService.get('DATABASE_USERNAME', 'postgres'),
+            // password: configService.get('DATABASE_PASSWORD', 'postgres'),
+            // database: configService.get<string>('DATABASE_SCHEMA', 'bwn4'),
+            // useUTC: true,
+            // logging: false,
+            // synchronize: configService.get<string>('SYNC_DATABASE', 'true')!='false',
+            host: configService.get('POSTGRES_HOST', 'localhost'),
+            port: Number(configService.get<number>('POSTGRES_PORT', 5432)),
+            username: configService.get('POSTGRES_USER', 'postgres'),
+            password: configService.get('POSTGRES_PASSWORD', 'pEM8F^hZBHuMfJYK'),
+            database: configService.get<string>('POSTGRES_DATABASE', 'bwn_db'),
+            useUTC: true,
+            logging: false,
+            synchronize: false,
+            entities: ["dist/**/**/*.entity{.ts,.js}"],
+  
+          };
+        } catch(e){
+          console.log(e);
+          
+        }     
+       
       },
     }),
     UsersModule,
