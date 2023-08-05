@@ -151,7 +151,10 @@ table{
 .left{
     margin-left: 15px;
     text-align: left;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
 }
 .tdColB1{
     width: 370px;
