@@ -106,7 +106,8 @@ yearTermId:number
 	shv ."speacialNeed",
 	s."classroomId" ,
 	s."classroomTypeId" ,
-	shv ."yearTermId"
+	shv ."yearTermId",
+	shv ."comeToSchool"
 from
 	student_home_visit shv
 inner join student s on
@@ -122,6 +123,8 @@ left join province ap on ap.id = s."provinceId" `
 export class ReportHomeVisitPersonal {
 	@ViewColumn()
 	studentId:number
+	@ViewColumn()
+	comeToSchool:number
 	@ViewColumn()
 homeVisitId:number
   @ViewColumn()

@@ -34,7 +34,6 @@ export class HomvisitRowData{
     img5:string
     createAt:string
 
-
 }
 export class StudentHomeVisitReportByRoom extends BaseReport{
     html = ''

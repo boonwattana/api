@@ -85,10 +85,11 @@ export class ReportService extends BaseService {
         const countStudent = await this.studentService.countByClassRoom(dto.classId,dto.roomId)
         const result = await this.reportHomeVisitPersonal.find({where:{yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
         
-        const needHelp = await this.reportHomeVisitNeedHelp.count({where:{isHelpStudentNeed:true,yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
-        const dontHelp2 = await this.reportHomeVisitNeedHelp.count({where:{isHelpStudentNeed:false,yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
-        const dontHelp1 = await this.reportHomeVisitNeedHelp.count({where:{isHelpStudentNeed:null,yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
-const dontHelp = dontHelp1+dontHelp2
+        // const needHelp = await this.reportHomeVisitNeedHelp.count({where:{isHelpStudentNeed:true,yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
+        // const dontHelp2 = await this.reportHomeVisitNeedHelp.count({where:{isHelpStudentNeed:false,yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
+        // const dontHelp1 = await this.reportHomeVisitNeedHelp.count({where:{isHelpStudentNeed:null,yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
+        const needHelp = result.filter(fl=>fl.isHelpStudentNeed == true)
+        const dontHelp = result.filter(fl=>fl.isHelpStudentNeed != true)
         const sumarize = await this.reportHomvisitSumarize.find({where:{yearTermId:dto.yearTermId,classroomId:dto.roomId,classroomTypeId:dto.classId}})
         const sumarizeList:DataRowModel[] = sumarize.map((m,index)=>{
             return {
@@ -100,11 +101,11 @@ const dontHelp = dontHelp1+dontHelp2
         })
         const sum:DataRowModel = {
             v1:'นักเรียนที่ยังไม่ต้องการความช่วยเหลือ',
-            v2:dontHelp,
-            v3:this.getPercentage(result.length,dontHelp),
+            v2:dontHelp.length,
+            v3:this.getPercentage(result.length,dontHelp.length),
             v4:'นักเรียนที่ควรได้รับการช่วยเหลือ',
-            v5:needHelp,
-            v6:this.getPercentage(result.length,needHelp),
+            v5:needHelp.length,
+            v6:this.getPercentage(result.length,needHelp.length),
             v7:'รวม',
             v8:result.length,
             v9:'',
@@ -126,7 +127,7 @@ const dontHelp = dontHelp1+dontHelp2
                 studentCode:m.studentCode,
                 alivePlace:this.getAlivePlaceLabel(m.alivePlace,m.alivePlaceOther) ,
 
-                travelBy:this.getTravelByLabel(m.travelBy),
+                travelBy:this.getTravelByLabel(m.comeToSchool),
                 contractAddress:m.contractAddress,
                 address:m.address,
                 houseLanscape:m.houseLanscape??'',
