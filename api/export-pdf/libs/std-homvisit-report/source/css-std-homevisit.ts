@@ -15,8 +15,8 @@ export const CSS_STD_HOMVISIT  = `body{
     font-family: "Sarabun";
     padding-left: 15mm;
     padding-right: 15mm;
-    padding-top: 5mm;
-    padding-bottom: 5mm;
+    padding-top: 3mm;
+    padding-bottom: 3mm;
 }
 p{
     margin-top: 0px;
@@ -36,10 +36,10 @@ p{
     border-color: black;
 }
 .header{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .title{
     text-align: center;
@@ -106,11 +106,10 @@ img{
 }
 th{
     font-weight: 100;
-    font-size: 12px;
     padding-left: 6x;
     padding-right: 6px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-top: 3px;
     font-size: 14px;
     border-left: 0.5px;
     border-right: 0.5px;
