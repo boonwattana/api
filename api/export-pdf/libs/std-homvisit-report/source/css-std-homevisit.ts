@@ -10,8 +10,8 @@ export const CSS_STD_HOMVISIT  = `body{
 }
 .a4{
     
-    height: 297mm;
-    width: 209mm;
+    height: 299mm;
+    width: 211mm;
     font-family: "Sarabun";
     padding-left: 15mm;
     padding-right: 15mm;
