@@ -127,7 +127,7 @@ export class ReportService extends BaseService {
                 studentCode: m.studentCode,
                 alivePlace: this.getAlivePlaceLabel(m.alivePlace, m.alivePlaceOther),
 
-                travelBy: this.getTravelByLabel(m.travelBy),
+                travelBy: this.getTravelByLabel(m.comeToSchool),
                 contractAddress: m.contractAddress,
                 address: m.address,
                 houseLanscape: m.houseLanscape ?? '',
