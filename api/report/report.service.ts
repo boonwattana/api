@@ -112,6 +112,8 @@ export class ReportService extends BaseService {
         }
         const dataList: HomvisitRowData[] = []
         for (const m of result) {
+            console.log('working on student id : ',m.studentId);
+
             const imageProfile = await this.getImageProfile(m.studentId);
 
             const imgs = await this.getImages(m.homeVisitId);
@@ -148,6 +150,8 @@ export class ReportService extends BaseService {
                 createAt: this.getDateLabel(m.createAt)
             })
         }
+        console.log('mapDataComplete');
+        
         return this.exportPdfService.getStudentHomeVisitReportByRoom(header, dataList, sumarizeList, sum)
     }
     getImage(arg0: string): string {

@@ -40,11 +40,17 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
     html = ''
     constructor(header:HeaderReport,dataList:HomvisitRowData[],sumarizeList:DataRowModel[],sumModel:DataRowModel){
         super()
+        console.log('start');
         this.html += this.openTagHtml()
+        console.log('getCss');
         this.html += this.getCss(CSS_STD_HOMVISIT)
+        console.log('openTagBody');
         this.html += this.openTagBody()
+        console.log('addReport');
         this.html += this.addReport(header,dataList,sumarizeList,sumModel)
+        console.log('getReportSumarizeTable');
         this.html += this.getReportSumarizeTable(header,sumarizeList)
+        console.log('getSumarize');
         this.html += this.getSumarize(sumModel)
         this.html += this.closeTagBody()
         this.html += this.closeTagHtml()
