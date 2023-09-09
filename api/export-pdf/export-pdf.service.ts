@@ -151,7 +151,11 @@ export class ExportPdfService {
       }
       const service:StudentHomeVisitReportByRoom = new StudentHomeVisitReportByRoom(header,dataList,sumarizeList,sumModel)
       const html = service.getHtml() 
-      return this.downloadPdf(html,false,'10mm','10mm')
+      try{
+        return this.downloadPdf(html,false,'10mm','10mm')
+      }catch(e){
+        console.log('error on service : ',e);
+      }
     }
 
 

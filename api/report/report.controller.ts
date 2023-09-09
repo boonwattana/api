@@ -155,7 +155,7 @@ export class ReportController extends BaseController{
       });
       response.end(pdfFile);
     } catch (e){      
-      console.log(e);
+      console.log('error on controller : ',e);
       throw new BadRequestException('ไม่มีข้อมูล')
     }
   }

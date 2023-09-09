@@ -54,6 +54,7 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
         this.html += this.getSumarize(sumModel)
         this.html += this.closeTagBody()
         this.html += this.closeTagHtml()
+        console.log('allcodeComplete');
 
     }
    public getHtml(){
