@@ -145,8 +145,8 @@ export class ReportService extends BaseService {
                 img1: this.getImage(imgs[0]),
                 img2: this.getImage(imgs[1]),
                 img3: this.getImage(imgs[2]),
-                img4: this.getImage('undifine'),
-                img5: this.getImage('undifine'),
+                img4: this.getImage(imgs[3]),
+                img5: this.getImage(imgs[4]),
                 createAt: this.getDateLabel(m.createAt)
             })
         }
