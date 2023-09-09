@@ -507,7 +507,7 @@ export class ReportService extends BaseService {
     }
     async getReportSdqReportByRoom(dto: ExportPdfDto, reportName: string, type: number) {
         const header = await this.getHeaderReport(reportName, dto.yearTermId, dto.classId, dto.roomId)
-        const result = await this.sdqRepository.find({ where: { classroomId: dto.roomId, classroomTypeId: dto.classId, yearTermId: dto.yearTermId, estimateType: type } })
+        const result = await this.sdqRepository.find({ where: { classroomId: dto.roomId, classroomTypeId: dto.classId, yearTermId: dto.yearTermId, estimateType: type },order:{studentNumber:'ASC'} })
         const dataList: DataRowModel[] = result.map(m => {
             return {
                 v1: m.nameValue,
