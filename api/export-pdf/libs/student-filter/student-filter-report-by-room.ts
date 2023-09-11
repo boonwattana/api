@@ -80,7 +80,7 @@ export class StudentFilterReportByRoom extends BaseReport{
   
   }
    private addReport(header: HeaderReport, dataList: DataRowModel[],sumarizeList:DataRowModel[],countSpecial:number) {
-        const perPage: number = 15
+        const perPage: number = 13
         const pageCount: number = Math.ceil(dataList.length / perPage)
         let report = ``
         let startRec: number = 0    
