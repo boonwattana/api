@@ -174,6 +174,7 @@ table{
     padding-left: 10mm;
 }
 .content2{
+    padding-top: -10mm;
     padding-left: 10mm;
 }
 .textTitle{
