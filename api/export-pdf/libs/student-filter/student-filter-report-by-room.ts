@@ -153,7 +153,6 @@ export class StudentFilterReportByRoom extends BaseReport{
         `
 
         table += `
-      </div>
       </div>  `
         return table
       
