@@ -106,6 +106,7 @@ export const CSS_STUDENT_FILTER_BY_ROOM = `body{
     padding-left: 10mm;
     padding-right: 0px;
     padding-bottom: 0px;
+    padding-bottom: 0px;
     margin-top: 0px;
     margin-left: 0px;
     margin-right: 0px;
