@@ -63,9 +63,17 @@ export class RoomDepressionReport extends BaseReport{
     </div>`
     }
     private addReport(header: HeaderReport, dataList: DataRowModel[]) {
+        const perPage: number = 30
+        const pageCount: number = Math.ceil(dataList.length / perPage)
         let report = ``
-        report += this.getHeaderRoom(header)
-        report += this.getReportTable(dataList,header)
+        let startRec: number = 0    
+        if (dataList.length > 0) {
+          for (let i = 0; i < pageCount; i++) {
+            startRec = i;
+            report += this.getHeaderRoom(header)
+            report += this.getReportTable([...dataList].splice((startRec * perPage), perPage),header)
+          }
+        }
         return report
     
     }

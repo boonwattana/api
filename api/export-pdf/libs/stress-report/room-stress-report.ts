@@ -57,11 +57,18 @@ export class StressReportByRoom extends BaseReport{
         return this.html
     }
    private addReport(header: HeaderReport, dataList: DataRowModel[],sumarizeList:DataRowModel) {
+        const perPage: number = 30
+        const pageCount: number = Math.ceil(dataList.length / perPage)
         let report = ``
-        report += this.getHeaderRoom(header)
-        report += this.getReportTable(dataList,header,sumarizeList)
+        let startRec: number = 0    
+        if (dataList.length > 0) {
+          for (let i = 0; i < pageCount; i++) {
+            startRec = i;
+            report += this.getHeaderRoom(header)
+            report += this.getReportTable([...dataList].splice((startRec * perPage), perPage),header,sumarizeList)
+          }
+        }
         return report
-    
     }
     private getReportTable(dataList: DataRowModel[],header:HeaderReport,sumarizeList:DataRowModel) {
   

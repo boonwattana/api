@@ -71,8 +71,8 @@ th{
 }
 
 td{
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-top: 0px;
     padding-left: 5px;
     text-align: left;
     font-size: 14px;

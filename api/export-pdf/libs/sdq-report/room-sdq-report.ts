@@ -20,11 +20,18 @@ export class SdqReportByRoom extends BaseReport{
         return this.html
     }
    private addReport(header: HeaderReport, dataList: DataRowModel[],sumarizeList:DataRowModel[]) {
-        let report = ``
+    const perPage: number = 35
+    const pageCount: number = Math.ceil(dataList.length / perPage)
+    let report = ``
+    let startRec: number = 0    
+    if (dataList.length > 0) {
+      for (let i = 0; i < pageCount; i++) {
+        startRec = i;
         report += this.getReportHeader(header)
-        report += this.getReportTable(dataList,header,sumarizeList)
-        return report
-    
+        report += this.getReportTable([...dataList].splice((startRec * perPage), perPage),header,sumarizeList)
+      }
+    }
+    return report
     }
     getReportSumarize(sumarizeList: DataRowModel[], sumarizeList2: DataRowModel) {
         let paper = `<div class="a4">
