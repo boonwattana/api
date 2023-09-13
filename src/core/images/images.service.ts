@@ -23,7 +23,7 @@ export class ImagesService extends BaseService {
                 const conveted = await this.resizeBase64Image(imageBase64)
                 console.log('conveted :',conveted);
                 
-                arr.push(conveted)
+                arr.push(imageBase64)
             }catch(e){
                 console.log(e);
                 
