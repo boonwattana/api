@@ -246,11 +246,6 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
                    <p class="left">
                        รูปเยี่ยมบ้าน  :
                    </p>
-                   <div class="imageVisit">
-                       <img src="data:image/jpeg;base64,${el.img1}" alt="" class="img1">
-                       <img src="data:image/jpeg;base64,${el.img2}" alt="" class="img2">
-                       <img src="data:image/jpeg;base64,${el.img3}" alt="" class="img3">
-                   </div>
                    <p class="left">
                        บันทึกข้อมูลเมื่อ : <span> ${el.createAt} </span>   ภาคเรียนที่/ปีการศึกษา : <span> ${header.term}/${header.year} </span>
                    </p>
