@@ -317,18 +317,8 @@ return this.downloadPdf(html)
             top:mt
           }
         };
-        return generatePdf(content, {...options,
-          
-          args:[
-        '--disable-gpu',
-        '--disable-dev-shm-usage',
+        return generatePdf(content, {...options,args:['--no-sandbox',
         '--disable-setuid-sandbox',
-        '--no-first-run',
-        '--no-sandbox',
-        '--no-zygote',
-        '--deterministic-fetch',
-        '--disable-features=IsolateOrigins',
-        '--disable-site-isolation-trials',
       ]})
       
 
