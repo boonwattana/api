@@ -9,6 +9,7 @@ import { ColumnType, ImageType } from '../shared/constans/enum-system';
 import { CreateImagesDto, SearchImagesDto, UpdateImagesDto } from './images.dto';
 import { Images } from './images.entity';
 import * as fs from 'fs';
+import Jimp from "jimp";
 @Injectable()
 export class ImagesService extends BaseService {
     async getImgBase64FromIds(refId: number, type: ImageType) {
@@ -17,7 +18,8 @@ export class ImagesService extends BaseService {
         for (const el of images) {
             try{
                 const imageBase64 = fs.readFileSync(`public/uploads/images/${el?.imageUrl}`, 'base64');
-                arr.push(imageBase64)
+                const conveted = await this.resizeBase64Image(imageBase64)
+                arr.push(conveted)
             }catch(e){
                 console.log(e);
                 
@@ -27,6 +29,19 @@ export class ImagesService extends BaseService {
         }
         return arr
     }
+    async resizeBase64Image(base64: string): Promise<string> {
+        // Decode the base64 image data and save it to a buffer
+        const imageBuffer = Buffer.from(base64, "base64");
+      
+        // Use Jimp to load the image from the buffer and resize it
+        const image = await Jimp.read(imageBuffer);
+        image.resize(320, Jimp.AUTO);
+      
+        // Convert the image back to a base64 data URI
+        const resizedImageBase64 = await image.getBase64Async(Jimp.MIME_PNG);
+      
+        return resizedImageBase64;
+      }
     async getImgBase64FromId(refId: number, type: ImageType) {
         const image = await this.repository.findOne({where:{refId:refId,refType:type}})
         try{

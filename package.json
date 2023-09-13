@@ -5,8 +5,6 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-
-
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -41,6 +39,7 @@
     "exceljs": "^4.3.0",
     "fs": "^0.0.1-security",
     "html-pdf-node-ts": "^1.0.7",
+    "jimp": "^0.22.10",
     "passport": "0.5.2",
     "passport-jwt": "^4.0.0",
     "pg": "^8.8.0",
