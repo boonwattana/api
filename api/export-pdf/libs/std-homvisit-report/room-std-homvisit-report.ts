@@ -114,14 +114,14 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
     getReportSumarizeTable(header: HeaderReport, sumarizeList: DataRowModel[]) {
         let paper =``
         paper += this.getHeader(header)
-        // sumarizeList.forEach(el=>{
-        //     paper += `            <tr>
-        //     <td class="tdCol1" >${el.v1??""}</td>
-        //     <td class="tdCol2">${el.v2??""}</td>
-        //     <td class="tdCol3">${el.v3??""}</td>
-        //     <td class="tdCol4">${el.v4??""}</td>
-        // </tr>`
-        // })
+        sumarizeList.forEach(el=>{
+            paper += `            <tr>
+            <td class="tdCol1" >${el.v1??""}</td>
+            <td class="tdCol2">${el.v2??""}</td>
+            <td class="tdCol3">${el.v3??""}</td>
+            <td class="tdCol4">${el.v4??""}</td>
+        </tr>`
+        })
         paper += `        </table>
         </div>
     
@@ -246,6 +246,11 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
                    <p class="left">
                        รูปเยี่ยมบ้าน  :
                    </p>
+                   <div class="imageVisit">
+                       <img src="data:image/jpeg;base64,${el.img1}" alt="" class="img1">
+                       <img src="data:image/jpeg;base64,${el.img2}" alt="" class="img2">
+                       <img src="data:image/jpeg;base64,${el.img3}" alt="" class="img3">
+                   </div>
                    <p class="left">
                        บันทึกข้อมูลเมื่อ : <span> ${el.createAt} </span>   ภาคเรียนที่/ปีการศึกษา : <span> ${header.term}/${header.year} </span>
                    </p>
