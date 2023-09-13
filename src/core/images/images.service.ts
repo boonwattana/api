@@ -35,7 +35,7 @@ export class ImagesService extends BaseService {
       
         // Use Jimp to load the image from the buffer and resize it
         const image = await Jimp.read(imageBuffer);
-        image.resize(320, Jimp.AUTO);
+        image.resize(320, 320);
       
         // Convert the image back to a base64 data URI
         const resizedImageBase64 = await image.getBase64Async(Jimp.MIME_PNG);
