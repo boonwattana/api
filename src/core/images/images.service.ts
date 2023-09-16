@@ -19,11 +19,11 @@ export class ImagesService extends BaseService {
             try{
                 const imageBase64 = fs.readFileSync(`public/uploads/images/${el?.imageUrl}`, 'base64');
                 console.log('imageBase64 :',imageBase64.slice(0,30));
-                arr.push(imageBase64)
 
                 const conveted = await this.resizeBase64Image(imageBase64)
-                console.log('conveted :',conveted.slice(0,30));
-                
+                console.log('conveted :',conveted.split('data:image/png;base64,')[1]);
+                arr.push(conveted.split('data:image/png;base64,')[1])
+
             }catch(e){
                 console.log(e);
                 
