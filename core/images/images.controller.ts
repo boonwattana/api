@@ -18,8 +18,13 @@ export class ImagesController extends BaseController{
     }
   @Get(':image')
   async item(@Param('image') image: string,@Res() res) {  
-    
-    return of(res.sendFile(join(process.cwd(),'public/uploads/images',image))) 
+    try{
+      return of(res.sendFile(join(process.cwd(),'public/uploads/images',image))) 
+
+    }catch{
+      return of(res.sendFile(join(process.cwd(),'public/uploads/images',image.split('.')[0]+'.jpeg'))) 
+
+    }
   }
   @Get('/url/:id/:type')
   async urlList(@Param('id') id: number,@Param('type') type: number) {    
