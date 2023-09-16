@@ -40,22 +40,14 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
     html = ''
     constructor(header:HeaderReport,dataList:HomvisitRowData[],sumarizeList:DataRowModel[],sumModel:DataRowModel){
         super()
-        console.log('start');
         this.html += this.openTagHtml()
-        console.log('getCss');
         this.html += this.getCss(CSS_STD_HOMVISIT)
-        console.log('openTagBody');
         this.html += this.openTagBody()
-        console.log('addReport');
         this.html += this.addReport(header,dataList,sumarizeList,sumModel)
-        console.log('getReportSumarizeTable');
         this.html += this.getReportSumarizeTable(header,sumarizeList)
-        console.log('getSumarize');
         this.html += this.getSumarize(sumModel)
         this.html += this.closeTagBody()
         this.html += this.closeTagHtml()
-        console.log('allcodeComplete');
-
     }
    public getHtml(){
         return this.html
@@ -250,6 +242,8 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
                        <img src="data:image/jpeg;base64,${el.img1}" alt="" class="img1">
                        <img src="data:image/jpeg;base64,${el.img2}" alt="" class="img2">
                        <img src="data:image/jpeg;base64,${el.img3}" alt="" class="img3">
+                       <img src="data:image/jpeg;base64,${el.img4}" alt="" class="img3">
+                       <img src="data:image/jpeg;base64,${el.img5}" alt="" class="img3">
                    </div>
                    <p class="left">
                        บันทึกข้อมูลเมื่อ : <span> ${el.createAt} </span>   ภาคเรียนที่/ปีการศึกษา : <span> ${header.term}/${header.year} </span>
