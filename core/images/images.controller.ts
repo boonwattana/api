@@ -19,9 +19,13 @@ export class ImagesController extends BaseController{
   @Get(':image')
   async item(@Param('image') image: string,@Res() res) {  
     try{
+      console.log('me tired');
+
       return of(res.sendFile(join(process.cwd(),'public/uploads/images',image))) 
 
-    }catch{
+    }catch(e){
+      console.log('loaderror');
+      
       return of(res.sendFile(join(process.cwd(),'public/uploads/images',image.split('.')[0]+'.jpeg'))) 
 
     }
