@@ -105,8 +105,22 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
     }
     getReportSumarizeTable(header: HeaderReport, sumarizeList: DataRowModel[]) {
         let paper =``
+        if(sumarizeList.length>35){
+            paper += this.getHeader(header)
+            sumarizeList.slice(0,35).forEach(el=>{
+                paper += `            <tr>
+                <td class="tdCol1" >${el.v1??""}</td>
+                <td class="tdCol2">${el.v2??""}</td>
+                <td class="tdCol3">${el.v3??""}</td>
+                <td class="tdCol4">${el.v4??""}</td>
+            </tr>`
+            })
+            paper += `        </table>
+            </div>
+        
+        </div>`
         paper += this.getHeader(header)
-        sumarizeList.forEach(el=>{
+        sumarizeList.slice(36,100).forEach(el=>{
             paper += `            <tr>
             <td class="tdCol1" >${el.v1??""}</td>
             <td class="tdCol2">${el.v2??""}</td>
@@ -118,6 +132,22 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
         </div>
     
     </div>`
+        }else{
+            paper += this.getHeader(header)
+            sumarizeList.forEach(el=>{
+                paper += `            <tr>
+                <td class="tdCol1" >${el.v1??""}</td>
+                <td class="tdCol2">${el.v2??""}</td>
+                <td class="tdCol3">${el.v3??""}</td>
+                <td class="tdCol4">${el.v4??""}</td>
+            </tr>`
+            })
+            paper += `        </table>
+            </div>
+        
+        </div>`
+        }
+ 
     return paper
     }
     getHeader(header: HeaderReport) {
