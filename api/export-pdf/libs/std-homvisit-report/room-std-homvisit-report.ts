@@ -120,7 +120,7 @@ export class StudentHomeVisitReportByRoom extends BaseReport{
         
         </div>`
         paper += this.getHeader(header)
-        sumarizeList.slice(36,100).forEach(el=>{
+        sumarizeList.slice(35,100).forEach(el=>{
             paper += `            <tr>
             <td class="tdCol1" >${el.v1??""}</td>
             <td class="tdCol2">${el.v2??""}</td>
