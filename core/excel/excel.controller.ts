@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Req, UseGuards } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Delete, Get, Param, Post, Put, Req, UseGuards } from "@nestjs/common";
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "src/core/authentications/jwt-auth.guard";
 import { BaseController } from "src/core/shared/controller/base-controller";
@@ -36,7 +36,8 @@ export class ExcelController extends BaseController{
   @Post('import')
   async import(@Body() dto: ImportExcelDto) {
     
-    try{            
+    try{         
+      throw new BadRequestException({describe:'ระบบ import ปิดปรับปรุง'})   
       return this.success(await this.service.import(dto))
     }catch(e){
       console.log(e);
