@@ -110,7 +110,7 @@ export class VwDemoItem {
   classroom_type ct   
   left join
   student s on s."classroomTypeId"  = ct.id  and ct."deletedAt" is null
-  where s."deletedAt" is null 
+  where s."deletedAt" is null and s.status != 2
   group by s."classroomTypeId",ct."typeName",ct.id 
   order by ct.id `
 })
@@ -125,6 +125,7 @@ export class VwbStudentByClass {
   name:'DB_STUDENT_BY_GENDAR',
   expression: `select count(s.id),g."gendarName"  from gendar g 
   left join student s on g.id = s."gendarId" 
+  where s.status != 2
   group by g.id,g."gendarName"
   order by g.id `
 })
