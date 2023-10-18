@@ -6,7 +6,7 @@ import { CustomRequest } from 'src/core/shared/models/request-model';
 import { SearchResult, SelectItems } from 'src/core/shared/models/search-param-model';
 import { BaseService } from 'src/core/shared/services/base.service';
 import { DropdownService } from 'src/core/shared/services/dropdown.service';
-import { Repository } from 'typeorm';
+import { Repository,Not } from 'typeorm';
 import { ImagesService } from '../images/images.service';
 import { savefileWithName } from '../shared/services/files.service';
 import { filename } from '../shared/utils/image.util';
@@ -16,7 +16,7 @@ import { Demo, VwbStudentByClass, VwbStudentByGendar, VwbTeacherByGendar, VwDemo
 @Injectable()
 export class DemoService extends BaseService {
    async dashboard(): Promise<DashboardDto> {
-      const studentCount = await this.studentRepository.count()
+      const studentCount = await this.studentRepository.count({where:{status:Not(2)}})
       const teacherCount = await this.teacherRepository.count()
       const studentByClass = await this.vwbStudentByClassRepository.find()
       const studentByGendar = await this.vwbStudentByGendarRepository.find()
