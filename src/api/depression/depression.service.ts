@@ -18,7 +18,7 @@ import { VwClassroomTypeDropdown } from '../classroom-type/classroom-type.entity
 import { VwClassroomDropdown } from '../classroom/classroom.entity';
 import { SearchExportExcelDto } from 'src/core/excel/excel.dto';
 import { exportExcel } from 'src/core/shared/services/export-excel.service';
-import { getDateLabel, getStatusLabel } from 'src/core/shared/functions';
+import { getDateLabel, getStatusLabel, getStatusLabelDepress } from 'src/core/shared/functions';
 
 @Injectable()
 export class DepressionService extends BaseService {
@@ -47,7 +47,7 @@ export class DepressionService extends BaseService {
                'ผลประเมิณโรคซึมเศร้า':this.getDepression(m.option1) ,
                'แนวโน้มการฆ่าตัวตาย':this.getSucied(m.option2) ,
                'วันที่ทำแบบประเมิน':getDateLabel (m.updatedAt) ,
-               'สถานะ':getStatusLabel(m.option3),
+               'สถานะ':getStatusLabelDepress(m.option1),
             }
         })
         return exportExcel(filterData)
