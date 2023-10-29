@@ -44,8 +44,8 @@ export class DepressionService extends BaseService {
                'ชื่อนักเรียน':m.studentValue,
                'ชั้นเรียน':m.typeName,
                'ห้อง':m.room,
-               'ผลประเมิณโรคซึมเศร้า':this.getDepression(m.option1) ,
-               'แนวโน้มการฆ่าตัวตาย':this.getSucied(m.option2) ,
+               'ผลประเมิณโรคซึมเศร้า':this.getDepression(m.option2) ,
+               'แนวโน้มการฆ่าตัวตาย':this.getSucied(m.option3) ,
                'วันที่ทำแบบประเมิน':getDateLabel (m.updatedAt) ,
                'สถานะ':getStatusLabelDepress(m.option1),
             }
