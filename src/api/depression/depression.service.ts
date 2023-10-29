@@ -52,41 +52,35 @@ export class DepressionService extends BaseService {
         })
         return exportExcel(filterData)
       }
-      getDepression(value: any) {
-        let des = "-";
-        if (value == 0) {
-          des = "ไม่มี";
+      getDepression(sumvalue: any) {
+        if(sumvalue<7){
+          return 'ไม่มี'
         }
-        if (value > 0) {
-          des = "มีความเสี่ยง";
+        if(sumvalue>=7&&sumvalue<=12){
+          return 'ระดับน้อย'
         }
-        if (value > 7) {
-          des = "ระดับน้อย";
+        if(sumvalue>=13&&sumvalue<=18){
+          return 'ระดับปานกลาง'
         }
-        if (value > 12) {
-          des = "ระดับปานกลาง";
+        if(sumvalue>=19){
+          return 'ระดับรุนแรง'
         }
-        if (value > 18) {
-          des = "ระดับรุนแรง";
-        }
-        return des;
+        return ''
       }
-      getSucied(value: any) {
-        let des = "-";
-        if (value == 0) {
-          des = "ไม่มี";
+      getSucied(sumvalue: any) {
+        if(sumvalue<1){
+          return 'ไม่มี'
         }
-        if (value > 0) {
-          des = "ระดับน้อย";
+        if(sumvalue>=1&&sumvalue<=8){
+          return 'ระดับน้อย'
         }
-        if (value > 8) {
-          des = "ระดับปานกลาง";
+        if(sumvalue>=9&&sumvalue<=16){
+          return 'ระดับปานกลาง'
         }
-        if (value > 16) {
-          des = "ระดับรุนแรง";
+        if(sumvalue>=17){
+          return 'ระดับรุนแรง'
         }
-    
-        return des;
+        return ''
       }
     constructor(
         @InjectRepository(Depression)
